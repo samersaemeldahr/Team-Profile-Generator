@@ -1,0 +1,19 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "An app that dynamically generates a team profile page",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samersaemeldahr/Team-Profile-Generator.git"
+  },
+  "author": "Samer Saem Eldahr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samersaemeldahr/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/samersaemeldahr/Team-Profile-Generator#readme"
+}
