@@ -9,3 +9,11 @@ describe("getGithub", () => {
         expect(githubName.getGithub()).toEqual("samersaemeldahr")
     })
 })
+
+describe("getRole", () => {
+    it("Should return 'engineer'", () => {
+        let position = new Engineer("Engineer");
+
+        expect(position.getRole()).toEqual("Engineer");
+    })
+})
