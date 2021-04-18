@@ -57,12 +57,13 @@ function askQuestions() {
                 }
             }
         },
-
+    ]).then(function () {
         teamMember()
-    ])
+    })
 }
 
-function teamMember(data) {
+
+function teamMember() {
     inquirer.prompt(
         {
             type: "list",
@@ -71,16 +72,133 @@ function teamMember(data) {
             choices: ["Engineer", "Intern", "I don't want add any more team members"],
         }
     ).then(data => {
-        switch (data) {
-            case "Engineer":
-                engineerQuestions();
-                break;
-            case "Intern":
-                internQuestions();
-                break;
-            default:
-                init();
+        if (data.addMember === "Engineer") {
+            engineerQuestions()
+        } else if (data.addMember === "Intern") {
+            internQuestions()
+        } else {
+            init();
         }
+    })
+}
+
+
+function engineerQuestions() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "engineerName",
+            message: "What's your engineer's name?",
+            validate: engineerName => {
+                if (engineerName) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid name <<");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "engineerId",
+            message: "What's your engineer's ID?",
+            validate: engineerId => {
+                if (engineerId) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid number <<");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What's your engineer's email?",
+            validate: engineerEmail => {
+                if (engineerEmail) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid email address <<");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "engineerGithub",
+            message: "What's your engineer's GitHub username?",
+            validate: engineerGithub => {
+                if (engineerGithub) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid username <<");
+                    return false;
+                }
+            }
+        },
+    ]).then(function () {
+        teamMember()
+    })
+}
+
+
+function internQuestions() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "internName",
+            message: "What's your intern's name?",
+            validate: internName => {
+                if (internName) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid name <<");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "internId",
+            message: "What's your intern's ID?",
+            validate: internId => {
+                if (internId) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid number <<");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "What's your intern's email?",
+            validate: internEmail => {
+                if (internEmail) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid email address <<");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "internSchool",
+            message: "What's your intern's school?",
+            validate: internSchool => {
+                if (internSchool) {
+                    return true;
+                } else {
+                    console.log(">> Please enter a valid username <<");
+                    return false;
+                }
+            }
+        },
+    ]).then(function () {
+        teamMember()
     })
 }
 
@@ -88,12 +206,13 @@ function teamMember(data) {
 
 
 
+
 function init() {
-    inquirer.prompt(questions)
-        .then(answers => {
-            //   let content = 
-            //    writeToFile()
-        })
+    askQuestions()
+    // .then(answers => {
+    //   let content = 
+    //    writeToFile()
+    // })
 };
 
 init();
