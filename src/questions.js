@@ -53,7 +53,7 @@ const managerQuestions = [
     },
     {
         type: "list",
-        name: "teamMember",
+        name: "choice",
         message: "Which type of team member would you like to add?",
         choices: ["Engineer", "Intern", "I don't want add any more team members"],
     }
@@ -114,7 +114,7 @@ const engineerQuestions = [
     },
     {
         type: "list",
-        name: "teamMember",
+        name: "choice",
         message: "Which type of team member would you like to add?",
         choices: ["Engineer", "Intern", "I don't want add any more team members"],
     }
@@ -175,7 +175,7 @@ const internQuestions = [
     },
     {
         type: "list",
-        name: "teamMember",
+        name: "choice",
         message: "Which type of team member would you like to add?",
         choices: ["Engineer", "Intern", "I don't want add any more team members"],
     }
