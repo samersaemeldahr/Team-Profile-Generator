@@ -27,11 +27,24 @@ function addMember(choice) {
                 console.error(err)
             });
 
+            addMoreMembers(answer)
         })
 }
 
-function init () {
+function addMoreMembers(answer) {
+    if (answer.choice === "Engineer") {
+        addMember(questions.engineerQuestions)
+    } else if (answer.choice === "Intern") {
+        addMember(questions.internQuestions)
+    } else {
+        fs.appendFile(`./dist/my-team.html`, templates(), (err) => {
+            console.error(err)
+        })
+    }
+}
 
+
+function init () {
     // prompt the beginning of questions
     inquirer
     .prompt(questions.managerQuestions)
@@ -48,6 +61,7 @@ function init () {
         fs.writeFile(`./dist/style.css`, css(), (err) => {
             console.error(err)})
 
+        addMoreMembers(answer)
     })
 }
 
